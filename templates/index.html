@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Guess the secret number{% endblock title %}
+
+{% block content %}
+
+<h1>Guess the secret number</h1>
+
+{% if user and user.secret_number %}
+    <form action="/result" method="post">
+
+        <input type="text" name="guess" placeholder="Enter your number">
+
+        <br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+{% else %}
+    <form action="/login" method="post">
+
+        <input type="text" name="user-name" placeholder="Enter your name">
+        <br>
+        <input type="email" name="user-email" placeholder="Enter your email address">
+        <br>
+        <input type="password" name="user-password" placeholder="Enter your password">
+        <br>
+
+        <button>Submit</button>
+    </form>
+{% endif %}
+{% endblock content %}
